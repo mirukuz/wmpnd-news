@@ -1,28 +1,18 @@
-// pages/index.js/index.js
-const newsCategoryMap = {
-  'gn': '国内',
-  'gj': '国际',
-  'cj': '财经',
-  'yl': '娱乐',
-  'js': '军事',
-  'ty': '体育',
-  'other': '其他'
-}
+// pages/detail/detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    category: 'gn',
-    list:''
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getNews()
+  
   },
 
   /**
@@ -72,23 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  getNews(callback) {
-    wx.request({
-      url: 'https://test-miniprogram.com/api/news/list',
-      data: {
-        type: this.data.category
-      },
-      success: res => {
-        let list = res.data.result
-        this.setData({
-          list: list
-        })
-        console.log(list)
-      },
-      complete: () => {
-        callback && callback()
-      }
-    })
-  },
+  }
 })
