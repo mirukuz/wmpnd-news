@@ -1,10 +1,16 @@
 /* pages/index.js/index.wxss */
-.news-item {
+.list-item {
   border-bottom: 1px solid #ababab
 }
-.news-title {
+.list-title {
   color: blue;
 }
-.news-source {
+.list-source {
   color: red;
+}
+.list-nav {
+  display: flex;
+  color: green;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
 }

@@ -1,19 +1,43 @@
 <!--pages/index.js/index.wxml-->
 <view class="list-wrapper">
-  <view class="news-list" wx:for="{{list}}" wx:key="{{item.key}}">
-    <view class="news-item-feature" wx:if="{{index == 1}}"> 
-      {{ item.title }}
+  <view class="list-nav">
+    <view
+      class="list-nav-item"
+      wx:for="{{categories}}"
+      wx:key="{{item.id}}"
+      bindtap="onTapGetCategory"
+      data-name="{{item[0]}}"
+    >
+      {{ item[1] }}
+    </view>
+  </view>
+  <view class="list" wx:for="{{list}}" wx:key="{{item.id}}">
+    <view 
+      class="list-item-feature" 
+      wx:if="{{index == 1}}"
+      bindtap="onTapGetDetail"
+      data-name="{{item.id}}"> 
+      <view class="list-title-feature">
+          {{ item.title }}
+      </view>
+      <view class="list-source-feature">
+        {{ item.source }}
+      </view>
     </view> 
-    <view class="news-item" wx:if="{{index > 1}}">
-      <view class="news-description">
-        <view class="news-title">
+    <view
+      class="list-item"
+      wx:if="{{index > 1}}"
+      bindtap="onTapGetDetail"
+      data-name="{{item.id}}"> 
+      <view class="list-description">
+        <view class="list-title">
           {{ item.title }}
         </view>
-        <view class="news-source">
+        <view class="list-source">
           {{ item.source }}
         </view>
       </view>
-      <view class="news-image">
+      <view class="list-image">
       </view>
     </view>
   </view>

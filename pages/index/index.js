@@ -14,15 +14,17 @@ Page({
    * 页面的初始数据
    */
   data: {
+    categories: Object.entries(newsCategoryMap),
     category: 'gn',
-    list:''
+    list: '',
+    id: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getNews()
+    this.getNewsList()
   },
 
   /**
@@ -73,7 +75,20 @@ Page({
   onShareAppMessage: function () {
   
   },
-  getNews(callback) {
+  onTapGetDetail(e) {
+    let id = e.currentTarget.dataset.name
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=' + id,
+    })
+  },
+  onTapGetCategory(e) {
+    let category = e.currentTarget.dataset.name
+    console.log(category)
+    this.setData({
+      category: category
+    }, () => this.getNewsList())
+  },
+  getNewsList(callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
       data: {
