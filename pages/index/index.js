@@ -39,12 +39,19 @@ Page({
     })
   },
 
+  /**
+   * 跳转新闻详情页面
+   */
   onTapGetDetail(e) {
     let id = e.currentTarget.dataset.name
     wx.navigateTo({
       url: '/pages/detail/detail?id=' + id,
     })
   },
+
+  /**
+   * 切换新闻分类，并刷新新闻列表
+   */
   onTapGetCategory(e) {
     let category = e.currentTarget.dataset.name
     console.log(category)
@@ -52,6 +59,10 @@ Page({
       category: category
     }, () => this.getNewsList())
   },
+
+  /**
+   * 获取新闻列表
+   */
   getNewsList(callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
@@ -60,7 +71,7 @@ Page({
       },
       success: res => {
         let list = res.data.result
-        // Format the date to `hour:minute`
+        // 格式化时间为 `时:分`
         list.forEach(item => {
           item.date = moment.getHourAndMinutes(item.date);
         });

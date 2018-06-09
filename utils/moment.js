@@ -1,4 +1,3 @@
-// TODO: Move it to /utils
 const minutesWithLeadingZeros = (dt) => {
   return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes();
 }

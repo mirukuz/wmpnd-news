@@ -22,6 +22,9 @@ Page({
     this.getNewsDetail()
   },
 
+  /**
+   * 获取新闻详情
+   */
   getNewsDetail(callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
