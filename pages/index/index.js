@@ -1,4 +1,6 @@
 // pages/index.js/index.js
+const moment = require('../../utils/moment.js')
+
 const newsCategoryMap = {
   'gn': '国内',
   'gj': '国际',
@@ -8,6 +10,7 @@ const newsCategoryMap = {
   'ty': '体育',
   'other': '其他'
 }
+
 Page({
 
   /**
@@ -28,53 +31,14 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.getNewsList(() => {
+      wx.stopPullDownRefresh()
+    })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
   onTapGetDetail(e) {
     let id = e.currentTarget.dataset.name
     wx.navigateTo({
@@ -88,14 +52,6 @@ Page({
       category: category
     }, () => this.getNewsList())
   },
-  // TODO: Move it to /utils
-  minutesWithLeadingZeros(dt) {
-    return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes();
-  },
-  getHourAndMinutes(e){
-    let moment = new Date(e);
-    return `${moment.getHours()}:${this.minutesWithLeadingZeros(moment)}`
-  },
   getNewsList(callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
@@ -106,7 +62,7 @@ Page({
         let list = res.data.result
         // Format the date to `hour:minute`
         list.forEach(item => {
-          item.date = this.getHourAndMinutes(item.date);
+          item.date = moment.getHourAndMinutes(item.date);
         });
         console.log(list)
         this.setData({

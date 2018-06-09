@@ -1,1 +1,25 @@
 /* pages/detail/detail.wxss */
+.detail-wrapper {
+  padding: 30rpx;
+}
+.detail-header {
+  font-size: 50rpx;
+  margin-bottom: 20rpx;
+}
+.detail-meta {
+  font-size: 28rpx;
+  color: #aaa;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+.detail-content-image {
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.detail-content-p {
+  font-size: 28rpx;
+  line-height: 42rpx;
+  color: #666;
+  margin-bottom: 28rpx;
+}

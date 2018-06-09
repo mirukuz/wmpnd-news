@@ -1,9 +1,7 @@
 {
-  "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black",
-    "backgroundColor": "#eeeeee",
-    "navigationBarTitleText": "快读资讯"
-  }
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#eeeeee",
+  "navigationBarTitleText": "快读资讯"
 }

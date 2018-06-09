@@ -1,18 +1,19 @@
 <!--pages/detail/detail.wxml-->
 <view class="detail-wrapper">
-  <view>{{ title }}</view>
+  <view class="detail-header">{{ title }}</view>
   <view class="detail-meta">
-    <view>{{ date }}</view>
-    <view>{{ source }}</view>
+    <view>{{ source || '未知来源' }} {{ date }}</view>
     <view>{{readCount && '阅读'}} {{ readCount }}</view>
   </view>
-  <img src="{{firstImage}}" />
   <view class="detail-content" wx:for="{{content}}" wx:key="{{item.id}}">
-    <view wx:if="{{item.type=='p'}}">
+    <view class="detail-content-p" wx:if="{{item.type=='p'}}">
       <view>{{ item.text }}</view>
     </view>
-    <view wx:elif="{{item.type=='image'}}">
-      <img src="{{item.src}}" />
-    </view>
+    <image
+      class="detail-content-image"
+      wx:elif="{{item.type=='image'}}"
+      mode="widthFix"
+      src="{{item.src}}"
+    />
   </view>
 </view>
