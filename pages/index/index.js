@@ -54,7 +54,6 @@ Page({
    */
   onTapGetCategory(e) {
     let category = e.currentTarget.dataset.name
-    console.log(category)
     this.setData({
       category: category
     }, () => this.getNewsList())

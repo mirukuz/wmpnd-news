@@ -2,7 +2,7 @@
 <view class="detail-wrapper">
   <view class="detail-header">{{ title }}</view>
   <view class="detail-meta">
-    <view>{{ source || '未知来源' }} {{ date }}</view>
+    <view>{{ source || (date && '未知来源') }} {{ date }}</view>
     <view>{{readCount && '阅读'}} {{ readCount }}</view>
   </view>
   <view class="detail-content" wx:for="{{content}}" wx:key="{{item.id}}">
