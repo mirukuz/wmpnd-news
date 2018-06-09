@@ -7,6 +7,7 @@
       wx:key="{{item.id}}"
       bindtap="onTapGetCategory"
       data-name="{{item[0]}}"
+      style="{{item[0]==category?'color:white;border-bottom: 2px solid #C5E3F9':'color:#C5E3F9'}}"
     >
       {{ item[1] }}
     </view>
@@ -17,11 +18,13 @@
       wx:if="{{index == 1}}"
       bindtap="onTapGetDetail"
       data-name="{{item.id}}"> 
-      <view class="list-title-feature">
-          {{ item.title }}
-      </view>
-      <view class="list-source-feature">
-        {{ item.source }}
+      <view class="list-item-feature-wrapper" style="background-image:url({{item.firstImage}})">
+        <view class="list-item-feature-title">
+            {{ item.title }}
+        </view>
+        <view class="list-item-feature-source">
+          {{ item.source || '未知来源' }} {{ item.date }}
+        </view>
       </view>
     </view> 
     <view
@@ -29,16 +32,15 @@
       wx:if="{{index > 1}}"
       bindtap="onTapGetDetail"
       data-name="{{item.id}}"> 
-      <view class="list-description">
-        <view class="list-title">
+      <view class="list-item-description">
+        <view class="list-item-title">
           {{ item.title }}
         </view>
-        <view class="list-source">
-          {{ item.source }}
+        <view class="list-item-source">
+          {{ item.source || '未知来源' }}  {{ item.date }}
         </view>
       </view>
-      <view class="list-image">
-      </view>
+      <image class="list-item-image" src="{{item.firstImage}}" />
     </view>
   </view>
 </view>

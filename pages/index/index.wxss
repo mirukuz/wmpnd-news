@@ -1,16 +1,57 @@
 /* pages/index.js/index.wxss */
 .list-item {
-  border-bottom: 1px solid #ababab
+  border-bottom: 1px solid #eee;
+  padding: 30rpx 0;
+  margin: 0 25rpx;
 }
-.list-title {
-  color: blue;
+.list-item {
+  display: flex;
+  justify-content: space-between;
 }
-.list-source {
-  color: red;
+.list-item-source {
+  font-size: 24rpx;
+  color: #aaa;
+}
+.list-item-feature-source {
+  font-size: 24rpx;
+  color: #ddd;
 }
 .list-nav {
   display: flex;
-  color: green;
-  justify-content: space-between;
-  margin-bottom: 10rpx;
+  justify-content: space-around;
+  background-color: #519CDA;
+  color: #C5E3F9;
+  padding: 10rpx 10rpx 20rpx 10rpx;
+}
+.list-item-title {
+  font-size: 32rpx;
+  padding-bottom: 10rpx;
+}
+.list-nav-item {
+  font-size: 32rpx;
+  padding-bottom: 8rpx;
+}
+.list-item-image {
+  flex: 0 0 220rpx;
+  height: 150rpx;
+  background-size: cover;
+  margin-left: 20rpx;
+}
+.list-item-feature {
+  height: 350rpx;
+  padding: 30rpx;
+  background-color: #eee;
+  display: flex;
+}
+.list-item-feature-wrapper {
+  flex: 1;
+  background-size: cover;
+  padding: 10rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.list-item-feature-title {
+  color: white;
+  font-size: 32rpx;
 }

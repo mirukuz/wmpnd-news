@@ -88,6 +88,14 @@ Page({
       category: category
     }, () => this.getNewsList())
   },
+  // TODO: Move it to /utils
+  minutesWithLeadingZeros(dt) {
+    return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes();
+  },
+  getHourAndMinutes(e){
+    let moment = new Date(e);
+    return `${moment.getHours()}:${this.minutesWithLeadingZeros(moment)}`
+  },
   getNewsList(callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
@@ -96,10 +104,14 @@ Page({
       },
       success: res => {
         let list = res.data.result
+        // Format the date to `hour:minute`
+        list.forEach(item => {
+          item.date = this.getHourAndMinutes(item.date);
+        });
+        console.log(list)
         this.setData({
           list: list
         })
-        console.log(list)
       },
       complete: () => {
         callback && callback()
