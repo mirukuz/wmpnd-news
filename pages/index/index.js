@@ -75,7 +75,6 @@ Page({
         list.forEach(item => {
           item.date = moment.getHourAndMinutes(item.date);
         });
-        console.log(list)
         this.setData({
           list: list
         })

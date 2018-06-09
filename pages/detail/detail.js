@@ -32,7 +32,6 @@ Page({
         id: this.data.id
       },
       success: res => {
-        console.log(res.data.result)
         let result = res.data.result
         if (result){
           this.setData({
